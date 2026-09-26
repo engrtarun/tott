@@ -1,69 +1,91 @@
-import Image from "next/image";
+import React from 'react';
+import movies from '@/data/youtube-movies.json';
+import { Play, Clapperboard, Star } from 'lucide-react';
+import Image from 'next/image';
 
-export default function Home() {
+export default function YouTubeGoldmine() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="min-h-screen pb-20">
+      {/* Header */}
+      <header className="glass sticky top-0 z-50 px-6 py-4 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Clapperboard className="text-[var(--color-tott-cyan)] w-6 h-6" />
+          <h1 className="text-xl font-bold tracking-wider text-white">TOTT <span className="text-[var(--color-tott-primary)]">Goldmine</span></h1>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="text-sm font-medium px-3 py-1 bg-white/10 rounded-full border border-white/10">
+          Free Movies
         </div>
-      </main>
-    </div>
+      </header>
+
+      {/* Hero Banner */}
+      <section className="relative w-full h-[40vh] md:h-[60vh] flex flex-col justify-end p-6 md:p-12 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          {/* using Hera Pheri poster as Hero banner */}
+          <Image 
+            src={`https://img.youtube.com/vi/J1r5hG9Z91E/maxresdefault.jpg`} 
+            alt="Hero Banner"
+            fill
+            className="object-cover opacity-40 blur-sm scale-105"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-tott-bg)] via-transparent to-black/50" />
+        </div>
+        
+        <div className="relative z-10 max-w-2xl">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="bg-[var(--color-tott-primary)] text-white text-xs font-bold px-2 py-1 rounded">FEATURED</span>
+            <span className="text-gray-300 text-sm flex items-center gap-1"><Star className="w-3 h-3 text-[var(--color-tott-gold)] fill-[var(--color-tott-gold)]" /> 8.1</span>
+          </div>
+          <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-2 leading-tight">Hera Pheri (2000)</h2>
+          <p className="text-gray-400 text-sm md:text-base mb-6 line-clamp-2">Three unemployed men find the answer to all their money problems when they receive a call from a kidnapper. Classic Bollywood comedy free on YouTube!</p>
+          <button className="flex items-center justify-center gap-2 bg-white text-black px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform">
+            <Play className="w-5 h-5 fill-black" /> Play Now
+          </button>
+        </div>
+      </section>
+
+      {/* Movie Grid */}
+      <section className="px-6 md:px-12 mt-8">
+        <h3 className="text-2xl font-bold text-white mb-6 border-l-4 border-[var(--color-tott-cyan)] pl-3">Top Shemaroo & Goldmines Hits</h3>
+        
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+          {movies.map((movie) => (
+            <div key={movie.id} className="group relative rounded-xl overflow-hidden glass-card cursor-pointer hover:glow-cyan transition-all duration-300 transform hover:-translate-y-2">
+              <div className="relative aspect-video w-full">
+                {/* MAGIC TRICK: High Quality YouTube Thumbnail extraction */}
+                <Image 
+                  src={`https://img.youtube.com/vi/${movie.id}/maxresdefault.jpg`}
+                  alt={movie.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+                
+                {/* Play Button Overlay */}
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <div className="bg-[var(--color-tott-primary)] p-3 rounded-full shadow-lg glow-primary">
+                    <Play className="w-6 h-6 text-white fill-white" />
+                  </div>
+                </div>
+
+                <div className="absolute top-2 right-2 bg-black/70 backdrop-blur-md px-2 py-1 rounded text-xs font-semibold text-white">
+                  {movie.runtime}
+                </div>
+              </div>
+              
+              <div className="p-4">
+                <h4 className="text-white font-bold line-clamp-1 mb-1">{movie.title}</h4>
+                <div className="flex items-center justify-between text-xs text-gray-400">
+                  <span>{movie.year} • {movie.genre}</span>
+                </div>
+                <div className="mt-3 text-[10px] font-bold text-[var(--color-tott-cyan)] uppercase tracking-wider">
+                  {movie.studio}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }

@@ -1,26 +1,50 @@
 @import "tailwindcss";
 
+@theme {
+  --color-tott-bg: #050505;
+  --color-tott-card: #0a0a0c;
+  --color-tott-primary: #FF2A6D;
+  --color-tott-cyan: #05D9E8;
+  --color-tott-gold: #FFD700;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #050505;
+  --foreground: #ffffff;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glassmorphism utilities */
+.glass {
+  background: rgba(10, 10, 12, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+  background: linear-gradient(145deg, rgba(20,20,22,1) 0%, rgba(10,10,12,1) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Neon Glow Effects */
+.glow-primary {
+  box-shadow: 0 0 15px rgba(255, 42, 109, 0.3);
+}
+.glow-cyan {
+  box-shadow: 0 0 15px rgba(5, 217, 232, 0.3);
+}
+
+/* Hide scrollbar for clean UI */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
 }
