@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { Play, ChevronLeft, Film } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import MoviePlayer from './MoviePlayer';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default async function MovieDetails({ params }: { params: { id: string } }) {
   // Await the params object before accessing its properties
@@ -16,14 +18,8 @@ export default async function MovieDetails({ params }: { params: { id: string } 
   }
 
   return (
-    <main className="min-h-screen bg-[#08070b] text-[#f7f7f8] pb-20">
-      {/* Header */}
-      <header className="sticky top-0 z-50 px-6 py-4 flex items-center justify-between bg-[#08070b]/95 backdrop-blur-sm border-b border-[#18151b]">
-        <Link href="/" className="flex items-center gap-2 hover:text-[var(--color-netflix-red)] transition-colors">
-          <ChevronLeft className="w-5 h-5" />
-          <span className="font-semibold text-sm">Home / Movies</span>
-        </Link>
-      </header>
+    <main className="min-h-screen bg-[var(--background)] text-[var(--foreground)] pb-20">
+      <Header />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12">
         <div className="flex flex-col md:flex-row gap-8 lg:gap-12">
@@ -35,8 +31,9 @@ export default async function MovieDetails({ params }: { params: { id: string } 
                 src={movie.poster || `https://img.youtube.com/vi/${movie.id}/maxresdefault.jpg`}
                 alt={movie.title}
                 fill
-                className={`object-cover ${!movie.poster && 'object-center'}`}
+                className={`object-cover ${!movie.poster ? 'object-center' : ''}`}
                 priority
+                unoptimized
               />
             </div>
           </div>
@@ -91,6 +88,7 @@ export default async function MovieDetails({ params }: { params: { id: string } 
           </div>
         </div>
       </div>
+      <Footer />
     </main>
   );
 }

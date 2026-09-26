@@ -12,6 +12,24 @@
 :root {
   --background: #08070b;
   --foreground: #f7f7f8;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --text-muted: #aaa4af;
+  --logo-white: #ffffff;
+  --footer-bg: #111111;
+  --pagination-bg: #1a1a1a;
+  --pagination-border: #333333;
+}
+
+[data-theme='light'] {
+  --background: #f8f9fa;
+  --foreground: #121212;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --text-muted: #6c757d;
+  --logo-white: #000000;
+  --color-hdhub-card: #ffffff;
+  --footer-bg: #ffffff;
+  --pagination-bg: #ffffff;
+  --pagination-border: #dddddd;
 }
 
 body {

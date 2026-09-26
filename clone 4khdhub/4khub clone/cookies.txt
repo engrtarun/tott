@@ -1,0 +1,5 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+renamereptiliantrance.com	TRUE	/	FALSE	1999999999	auth	v=var981&id=c71c799767bd578ade27360bc95d777a
+.renamereptiliantrance.com	TRUE	/	FALSE	1999999999	SameSite	None
+

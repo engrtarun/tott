@@ -11,7 +11,12 @@
     "description": "Three unemployed men find the answer to all their money problems when they receive a call from a kidnapper. However, things do not go as planned.",
     "director": "Priyadarshan",
     "stars": "Akshay Kumar, Sunil Shetty, Paresh Rawal",
-    "tags": ["1080p", "Comedy", "Hindi", "Cult Classic"]
+    "tags": [
+      "1080p",
+      "Comedy",
+      "Hindi",
+      "Cult Classic"
+    ]
   },
   {
     "id": "e_z2zH5mS5k",
@@ -25,7 +30,12 @@
     "description": "A man in debt fakes his death to save his family, but ends up in a house where everyone thinks he is deaf and mute.",
     "director": "Priyadarshan",
     "stars": "Shahid Kapoor, Kareena Kapoor, Paresh Rawal",
-    "tags": ["1080p", "Comedy", "Hindi", "Family"]
+    "tags": [
+      "1080p",
+      "Comedy",
+      "Hindi",
+      "Family"
+    ]
   },
   {
     "id": "GBs2XIW9Dnw",
@@ -41,7 +51,13 @@
     "description": "Three bachelors find girls who they fall in love with. However, the twists and turns of their newly developing love stories soon become a nightmare.",
     "director": "Luv Ranjan",
     "stars": "Kartik Aaryan, Divyendu Sharma, Raayo S. Bakhirta",
-    "tags": ["2160p", "4K", "Romance", "Comedy", "Hindi"]
+    "tags": [
+      "2160p",
+      "4K",
+      "Romance",
+      "Comedy",
+      "Hindi"
+    ]
   },
   {
     "id": "DbNsEXLKSkA",
@@ -57,7 +73,13 @@
     "description": "Three friends experience the pitfalls of love and relationships. Just like the prequel, it takes a comic look at the downside of modern romance.",
     "director": "Luv Ranjan",
     "stars": "Kartik Aaryan, Sunny Singh, Omkar Kapoor",
-    "tags": ["2160p", "4K", "Romance", "Comedy", "Hindi"]
+    "tags": [
+      "2160p",
+      "4K",
+      "Romance",
+      "Comedy",
+      "Hindi"
+    ]
   },
   {
     "id": "stree",
@@ -73,7 +95,13 @@
     "description": "The people of Chanderi live under constant fear of Stree, the spirit of a woman who attacks men at night during festivals. Vicky, along with his friends, decides to unravel the mystery.",
     "director": "Amar Kaushik",
     "stars": "Rajkummar Rao, Shraddha Kapoor, Pankaj Tripathi",
-    "tags": ["1080p", "Horror", "Comedy", "Hindi", "MHCU"]
+    "tags": [
+      "1080p",
+      "Horror",
+      "Comedy",
+      "Hindi",
+      "MHCU"
+    ]
   },
   {
     "id": "bhediya",
@@ -89,7 +117,14 @@
     "description": "Bhaskar finds himself changing after being bitten by a wolf in the forests of Arunachal. While Bhaskar begins to transform into a shape-shifting werewolf, he and his friends look for answers amid many twists, turns and laughs.",
     "director": "Amar Kaushik",
     "stars": "Varun Dhawan, Kriti Sanon, Abhishek Banerjee",
-    "tags": ["2160p", "4K", "Horror", "Comedy", "Hindi", "MHCU"]
+    "tags": [
+      "2160p",
+      "4K",
+      "Horror",
+      "Comedy",
+      "Hindi",
+      "MHCU"
+    ]
   },
   {
     "id": "munjya",
@@ -105,7 +140,14 @@
     "description": "A young man's visit to his native village unveils a family secret and a vengeful spirit, the Munjya, who wants to get married.",
     "director": "Aditya Sarpotdar",
     "stars": "Abhay Verma, Sharvari Wagh, Mona Singh",
-    "tags": ["2160p", "4K", "Horror", "Comedy", "Hindi", "MHCU"]
+    "tags": [
+      "2160p",
+      "4K",
+      "Horror",
+      "Comedy",
+      "Hindi",
+      "MHCU"
+    ]
   },
   {
     "id": "stree2",
@@ -121,7 +163,14 @@
     "description": "The town of Chanderi is being haunted again. This time, women are mysteriously abducted by a terrifying headless entity known as Sarkata.",
     "director": "Amar Kaushik",
     "stars": "Rajkummar Rao, Shraddha Kapoor, Pankaj Tripathi",
-    "tags": ["2160p", "4K", "Horror", "Comedy", "Hindi", "MHCU"]
+    "tags": [
+      "2160p",
+      "4K",
+      "Horror",
+      "Comedy",
+      "Hindi",
+      "MHCU"
+    ]
   },
   {
     "id": "thaama",
@@ -136,7 +185,13 @@
     "description": "A highly anticipated horror-comedy set to expand the Maddock Supernatural Universe with a brand-new folklore and terrifying laughs.",
     "director": "Aditya Sarpotdar",
     "stars": "Ayushmann Khurrana, Rashmika Mandanna",
-    "tags": ["4K", "Horror", "Comedy", "Hindi", "MHCU"]
+    "tags": [
+      "4K",
+      "Horror",
+      "Comedy",
+      "Hindi",
+      "MHCU"
+    ]
   },
   {
     "id": "shaktishalini",
@@ -151,7 +206,12 @@
     "description": "Another exciting addition to the universe, featuring an untold story of a powerful entity from Indian folklore.",
     "director": "TBA",
     "stars": "TBA",
-    "tags": ["Upcoming", "Horror", "Comedy", "MHCU"]
+    "tags": [
+      "Upcoming",
+      "Horror",
+      "Comedy",
+      "MHCU"
+    ]
   },
   {
     "id": "bhediya2",
@@ -166,7 +226,12 @@
     "description": "Bhaskar returns as the werewolf protector of the forest, facing a newer and darker threat that tests his humanity and animal instincts.",
     "director": "Amar Kaushik",
     "stars": "Varun Dhawan, Kriti Sanon",
-    "tags": ["Upcoming", "Horror", "Comedy", "MHCU"]
+    "tags": [
+      "Upcoming",
+      "Horror",
+      "Comedy",
+      "MHCU"
+    ]
   },
   {
     "id": "stree3",
@@ -181,7 +246,12 @@
     "description": "The epic continuation of the Chanderi saga. Stree's myth deepens as the town faces its most ancient evil yet.",
     "director": "Amar Kaushik",
     "stars": "Rajkummar Rao, Shraddha Kapoor",
-    "tags": ["Upcoming", "Horror", "Comedy", "MHCU"]
+    "tags": [
+      "Upcoming",
+      "Horror",
+      "Comedy",
+      "MHCU"
+    ]
   },
   {
     "id": "chamunda",
@@ -196,7 +266,12 @@
     "description": "A fierce exploration of local legends, bringing the dreaded Chamunda into the shared universe.",
     "director": "TBA",
     "stars": "TBA",
-    "tags": ["Upcoming", "Horror", "Comedy", "MHCU"]
+    "tags": [
+      "Upcoming",
+      "Horror",
+      "Comedy",
+      "MHCU"
+    ]
   },
   {
     "id": "mahamunjya",
@@ -211,7 +286,12 @@
     "description": "The Munjya spirit returns, but this time the stakes are massive, tying the events across the universe.",
     "director": "Aditya Sarpotdar",
     "stars": "TBA",
-    "tags": ["Upcoming", "Horror", "Comedy", "MHCU"]
+    "tags": [
+      "Upcoming",
+      "Horror",
+      "Comedy",
+      "MHCU"
+    ]
   },
   {
     "id": "pehlahahayudh",
@@ -226,7 +306,12 @@
     "description": "The Avengers-style team-up of the Maddock Universe. Stree, Bhediya, Munjya and more unite for the first Great War against darkness.",
     "director": "Amar Kaushik",
     "stars": "Rajkummar Rao, Varun Dhawan, Shraddha Kapoor",
-    "tags": ["Upcoming", "Horror", "Comedy", "MHCU"]
+    "tags": [
+      "Upcoming",
+      "Horror",
+      "Comedy",
+      "MHCU"
+    ]
   },
   {
     "id": "doosaramahayudh",
@@ -241,6 +326,151 @@
     "description": "The conclusive battle of the horror-comedy universe. The fate of the mortal realm hangs in the balance.",
     "director": "TBA",
     "stars": "TBA",
-    "tags": ["Upcoming", "Horror", "Comedy", "MHCU"]
+    "tags": [
+      "Upcoming",
+      "Horror",
+      "Comedy",
+      "MHCU"
+    ]
+  },
+  {
+    "id": "ePO5M5DE01I",
+    "title": "Ek Tha Tiger",
+    "studio": "YRF",
+    "genre": "Action, Thriller",
+    "year": 2012,
+    "quality": "4K",
+    "runtime": "133m",
+    "tagline": "There is only one Tiger.",
+    "description": "India's top spy Tiger and his love Zoya battle the dark world of intelligence and espionage.",
+    "director": "Kabir Khan",
+    "stars": "Salman Khan, Katrina Kaif",
+    "tags": [
+      "YRF Spy Universe",
+      "Action",
+      "1080p"
+    ],
+    "poster": "https://upload.wikimedia.org/wikipedia/en/2/22/Ek_Tha_Tiger_theatrical_poster.jpg",
+    "trailerId": "ePO5M5DE01I"
+  },
+  {
+    "id": "ePO5M5DE01I",
+    "title": "Tiger Zinda Hai",
+    "studio": "YRF",
+    "genre": "Action, Thriller",
+    "year": 2017,
+    "quality": "4K",
+    "runtime": "158m",
+    "tagline": "This time, it's personal.",
+    "description": "When a group of Indian and Pakistani nurses are held hostage in Iraq by a terrorist organization, a secret agent is drawn out of hiding to rescue them.",
+    "director": "Ali Abbas Zafar",
+    "stars": "Salman Khan, Katrina Kaif",
+    "tags": [
+      "YRF Spy Universe",
+      "Action",
+      "4K"
+    ],
+    "poster": "https://stat4.bollywoodhungama.in/wp-content/uploads/2017/08/Tiger-Zinda-Hai-11-306x393.jpg",
+    "trailerId": "ePO5M5DE01I"
+  },
+  {
+    "id": "tQ0yjYUVDnI",
+    "title": "War",
+    "studio": "YRF",
+    "genre": "Action, Thriller",
+    "year": 2019,
+    "quality": "4K",
+    "runtime": "154m",
+    "tagline": "Two of the biggest action heroes.",
+    "description": "An Indian soldier is assigned to eliminate his former mentor and he must keep his wits about him if he is to be successful in his mission.",
+    "director": "Siddharth Anand",
+    "stars": "Hrithik Roshan, Tiger Shroff, Vaani Kapoor",
+    "tags": [
+      "YRF Spy Universe",
+      "Action",
+      "4K"
+    ],
+    "poster": "https://upload.wikimedia.org/wikipedia/en/6/6f/War_official_poster.jpg",
+    "trailerId": "tQ0yjYUVDnI"
+  },
+  {
+    "id": "vqu4z34wENw",
+    "title": "Pathaan",
+    "studio": "YRF",
+    "genre": "Action, Thriller",
+    "year": 2023,
+    "quality": "4K",
+    "runtime": "146m",
+    "tagline": "Fasten your seatbelts.",
+    "description": "An Indian spy takes on the leader of a group of mercenaries who have nefarious plans to target his homeland.",
+    "director": "Siddharth Anand",
+    "stars": "Shah Rukh Khan, Deepika Padukone, John Abraham",
+    "tags": [
+      "YRF Spy Universe",
+      "Action",
+      "4K"
+    ],
+    "poster": "https://upload.wikimedia.org/wikipedia/en/c/c3/Pathaan_film_poster.jpg",
+    "trailerId": "vqu4z34wENw"
+  },
+  {
+    "id": "J1r5hG9Z91E",
+    "title": "Tiger 3",
+    "studio": "YRF",
+    "genre": "Action, Thriller",
+    "year": 2023,
+    "quality": "4K",
+    "runtime": "156m",
+    "tagline": "A new mission begins.",
+    "description": "Tiger and Zoya are back to save the country and their family. This time it is personal.",
+    "director": "Maneesh Sharma",
+    "stars": "Salman Khan, Katrina Kaif, Emraan Hashmi",
+    "tags": [
+      "YRF Spy Universe",
+      "Action",
+      "4K"
+    ],
+    "poster": "https://stat5.bollywoodhungama.in/wp-content/uploads/2023/09/Tiger-3-4-306x393.jpg",
+    "trailerId": "J1r5hG9Z91E"
+  },
+  {
+    "id": "tQ0yjYUVDnI",
+    "title": "War 2",
+    "studio": "YRF",
+    "genre": "Action, Thriller",
+    "year": 2025,
+    "quality": "4K",
+    "runtime": "162m",
+    "tagline": "The War Continues.",
+    "description": "Upcoming sequel to the 2019 blockbuster War.",
+    "director": "Ayan Mukerji",
+    "stars": "Hrithik Roshan, Jr. NTR, Kiara Advani",
+    "tags": [
+      "YRF Spy Universe",
+      "Action",
+      "1080p"
+    ],
+    "poster": "https://stat4.bollywoodhungama.in/wp-content/uploads/2023/04/War-2-1-306x393.jpg",
+    "trailerId": "tQ0yjYUVDnI"
+  },
+  {
+    "id": "vqu4z34wENw",
+    "title": "Alpha",
+    "studio": "YRF",
+    "genre": "Action, Thriller",
+    "year": 2025,
+    "quality": "4K",
+    "runtime": "150m",
+    "tagline": "The first female spy film.",
+    "description": "Upcoming female-led spy film in the YRF Spy Universe.",
+    "director": "Shiv Rawail",
+    "stars": "Alia Bhatt, Sharvari Wagh",
+    "tags": [
+      "YRF Spy Universe",
+      "Action",
+      "1080p"
+    ],
+    "poster": "https://stat5.bollywoodhungama.in/wp-content/uploads/2024/07/Alpha-2-306x393.jpg",
+    "trailerId": "vqu4z34wENw"
   }
 ]
