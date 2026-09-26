@@ -45,12 +45,12 @@ export default function YouTubeGoldmine() {
       </section>
 
       {/* Movie Grid */}
-      <section className="px-6 md:px-12 mt-8">
-        <h3 className="text-xl font-bold text-white mb-6 border-l-4 border-[var(--color-netflix-red)] pl-3">Top Shemaroo & Goldmines Hits</h3>
+      <section className="px-4 md:px-8 mt-8">
+        <h3 className="text-xl font-bold text-white mb-6 border-l-4 border-[#ff9800] pl-3">Top Shemaroo & Goldmines Hits</h3>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4">
           {movies.map((movie) => (
-            <div key={movie.id} className="group relative rounded overflow-hidden movie-card cursor-pointer">
+            <a key={movie.id} href={`https://youtube.com/watch?v=${movie.id}`} target="_blank" rel="noopener noreferrer" className="group relative bg-[#18151b] rounded-lg overflow-hidden movie-card block cursor-pointer border border-transparent hover:border-[#211a20]">
               <div className="relative aspect-video w-full">
                 {/* MAGIC TRICK: High Quality YouTube Thumbnail extraction */}
                 <Image 
@@ -68,21 +68,23 @@ export default function YouTubeGoldmine() {
                   </div>
                 </div>
 
-                <div className="absolute top-2 right-2 bg-black/80 px-2 py-1 rounded-sm text-[10px] font-semibold text-white">
-                  {movie.runtime}
+                <div className="absolute top-2 right-2 flex flex-col gap-1 items-end">
+                  <span className="bg-[#15803d] px-1.5 py-0.5 rounded text-[10px] font-bold text-white">{movie.quality}</span>
+                  <span className="bg-[#ea580c] px-1.5 py-0.5 rounded text-[10px] font-bold text-white">{movie.runtime}</span>
                 </div>
               </div>
               
               <div className="p-3">
-                <h4 className="text-[var(--color-text-main)] font-semibold text-sm line-clamp-1 mb-1">{movie.title}</h4>
-                <div className="flex items-center justify-between text-[11px] text-[var(--color-text-muted)]">
-                  <span>{movie.year} • {movie.genre}</span>
+                <h4 className="text-[#f7f7f8] font-bold text-sm md:text-base line-clamp-1 mb-1 group-hover:text-[#ff9800] transition-colors">{movie.title}</h4>
+                <div className="flex flex-wrap items-center gap-2 mb-2">
+                  <span className="text-[#aaa4af] text-[11px]">{movie.year}</span>
+                  <span className="bg-[#0d9488]/20 text-[#0d9488] px-1.5 py-0.5 rounded text-[10px] font-bold">{movie.genre}</span>
                 </div>
-                <div className="mt-2 text-[10px] font-bold text-[#ea580c] uppercase tracking-wider">
+                <div className="text-[10px] font-bold text-[#ff9800] uppercase tracking-wider truncate">
                   {movie.studio}
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </section>
