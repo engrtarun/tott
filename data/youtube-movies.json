@@ -1,56 +1,60 @@
 [
   {
     "id": "J1r5hG9Z91E",
-    "title": "Hera Pheri (2000)",
-    "studio": "Goldmines Bollywood",
+    "title": "Hera Pheri",
+    "studio": "Goldmines",
     "genre": "Comedy",
     "year": 2000,
-    "quality": "HD 1080p",
-    "runtime": "156 min"
+    "quality": "HD",
+    "runtime": "156m",
+    "tagline": "The classic trio.",
+    "description": "Three unemployed men find the answer to all their money problems when they receive a call from a kidnapper. However, things do not go as planned.",
+    "director": "Priyadarshan",
+    "stars": "Akshay Kumar, Sunil Shetty, Paresh Rawal",
+    "tags": ["1080p", "Comedy", "Hindi", "Cult Classic"]
   },
   {
     "id": "e_z2zH5mS5k",
     "title": "Chup Chup Ke",
-    "studio": "Shemaroo Movies",
-    "genre": "Comedy",
-    "year": 2006,
-    "quality": "HD 1080p",
-    "runtime": "164 min"
-  },
-  {
-    "id": "R4tYgqO1eP4",
-    "title": "Phir Hera Pheri",
-    "studio": "Goldmines",
-    "genre": "Comedy",
-    "year": 2006,
-    "quality": "HD 1080p",
-    "runtime": "153 min"
-  },
-  {
-    "id": "s8v4tU7yOEk",
-    "title": "Bhool Bhulaiyaa",
-    "studio": "T-Series",
-    "genre": "Horror Comedy",
-    "year": 2007,
-    "quality": "HD 1080p",
-    "runtime": "159 min"
-  },
-  {
-    "id": "6CgI5y3bX5U",
-    "title": "Dhol",
-    "studio": "Shemaroo Movies",
-    "genre": "Comedy",
-    "year": 2007,
-    "quality": "HD 1080p",
-    "runtime": "145 min"
-  },
-  {
-    "id": "f5a0O_6C3x0",
-    "title": "Welcome",
     "studio": "Shemaroo",
     "genre": "Comedy",
-    "year": 2007,
-    "quality": "HD 1080p",
-    "runtime": "159 min"
+    "year": 2006,
+    "quality": "HD",
+    "runtime": "164m",
+    "tagline": "Silence is golden.",
+    "description": "A man in debt fakes his death to save his family, but ends up in a house where everyone thinks he is deaf and mute.",
+    "director": "Priyadarshan",
+    "stars": "Shahid Kapoor, Kareena Kapoor, Paresh Rawal",
+    "tags": ["1080p", "Comedy", "Hindi", "Family"]
+  },
+  {
+    "id": "pkp1",
+    "title": "Pyaar Ka Punchnama",
+    "studio": "Viacom18",
+    "genre": "Rom-Com",
+    "year": 2011,
+    "quality": "4K",
+    "runtime": "149m",
+    "poster": "/posters/pyaar-ka-punchnama-indian-movie-poster.webp",
+    "tagline": "A twisted love story.",
+    "description": "Three bachelors find girls who they fall in love with. However, the twists and turns of their newly developing love stories soon become a nightmare.",
+    "director": "Luv Ranjan",
+    "stars": "Kartik Aaryan, Divyendu Sharma, Raayo S. Bakhirta",
+    "tags": ["2160p", "4K", "Romance", "Comedy", "Hindi"]
+  },
+  {
+    "id": "pkp2",
+    "title": "Pyaar Ka Punchnama 2",
+    "studio": "Viacom18",
+    "genre": "Rom-Com",
+    "year": 2015,
+    "quality": "4K",
+    "runtime": "136m",
+    "poster": "/posters/pyaar-ka-punchnama2-indian-movie-poster.webp",
+    "tagline": "The dogs are back.",
+    "description": "Three friends experience the pitfalls of love and relationships. Just like the prequel, it takes a comic look at the downside of modern romance.",
+    "director": "Luv Ranjan",
+    "stars": "Kartik Aaryan, Sunny Singh, Omkar Kapoor",
+    "tags": ["2160p", "4K", "Romance", "Comedy", "Hindi"]
   }
 ]
