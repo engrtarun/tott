@@ -1,20 +1,45 @@
 import React from 'react';
 import movies from '@/data/youtube-movies.json';
-import { Play, Clapperboard, Star } from 'lucide-react';
+import { Play, Star, Search, Moon, ChevronDown, Flame } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+
+const mhcuMovies = movies.filter(m => m.tags?.includes('MHCU'));
+const latestMovies = movies.filter(m => !m.tags?.includes('MHCU'));
 
 export default function YouTubeGoldmine() {
   return (
     <main className="min-h-screen pb-20">
       {/* Header */}
       <header className="sticky top-0 z-50 px-6 py-4 flex items-center justify-between bg-[#08070b]/95 backdrop-blur-sm border-b border-[#18151b]">
-        <div className="flex items-center gap-2">
-          <Clapperboard className="text-[var(--color-netflix-red)] w-6 h-6" />
-          <h1 className="text-xl font-bold tracking-wider text-white">TOTT <span className="font-normal text-[var(--color-text-muted)]">Goldmine</span></h1>
+        <div className="flex items-center gap-8">
+          <Link href="/" className="text-2xl font-bold tracking-wider text-white flex items-center">
+            <span className="text-white">4K</span>
+            <span className="text-[#aaa4af]">HD</span>
+            <span className="text-[#ff9800]">HUB</span>
+          </Link>
+
+          {/* Nav Links */}
+          <nav className="hidden lg:flex items-center gap-6 text-sm font-semibold text-[#f7f7f8]">
+            <Link href="#" className="hover:text-[#ff9800] transition-colors">Home</Link>
+            <div className="flex items-center gap-1 cursor-pointer hover:text-[#ff9800] transition-colors group">
+              Movies <ChevronDown className="w-4 h-4 text-gray-400 group-hover:text-[#ff9800] transition-colors" />
+            </div>
+            <div className="flex items-center gap-1 cursor-pointer hover:text-[#ff9800] transition-colors group">
+              Web Series <ChevronDown className="w-4 h-4 text-gray-400 group-hover:text-[#ff9800] transition-colors" />
+            </div>
+            <div className="flex items-center gap-1 cursor-pointer hover:text-[#ff9800] transition-colors group">
+              OTT <ChevronDown className="w-4 h-4 text-gray-400 group-hover:text-[#ff9800] transition-colors" />
+            </div>
+            <Link href="#" className="hover:text-[#ff9800] transition-colors">Anime</Link>
+            <Link href="#" className="hover:text-[#ff9800] transition-colors">4K HDR</Link>
+            <Link href="#" className="hover:text-[#ff9800] transition-colors">Top IMDb</Link>
+          </nav>
         </div>
-        <div className="text-sm font-medium px-4 py-1.5 bg-[var(--color-netflix-red)] text-white rounded cursor-pointer hover:bg-red-700 transition-colors">
-          Free Movies
+
+        <div className="flex items-center gap-4 text-[#f7f7f8]">
+          <button className="hover:text-[#ff9800] transition-colors"><Search className="w-5 h-5" /></button>
+          <button className="hover:text-[#ff9800] transition-colors"><Moon className="w-5 h-5" /></button>
         </div>
       </header>
 
@@ -44,13 +69,59 @@ export default function YouTubeGoldmine() {
         </div>
       </section>
 
-      {/* Movie Grid */}
-      <section className="px-4 md:px-8 mt-8">
-        <h3 className="text-xl font-bold text-white mb-6 border-l-4 border-[#ff9800] pl-3">Latest Releases</h3>
+      {/* MHCU Grid */}
+      <section className="px-4 md:px-8 mt-12 mb-8">
+        <h3 className="text-xl font-bold text-white mb-6 border-l-4 border-[var(--color-netflix-red)] pl-3">Maddock Horror Comedy Universe</h3>
         
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-5">
-          {movies.map((movie) => (
-            <Link key={movie.id} href={`/movie/${movie.id}`} className="group relative bg-[#08070b] rounded overflow-hidden block cursor-pointer transition-transform duration-300 hover:scale-[1.02]">
+        <div className="flex gap-4 md:gap-5 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-4">
+          {mhcuMovies.map((movie) => (
+            <Link key={movie.id} href={`/movie/${movie.id}`} className="flex-none w-[140px] sm:w-[160px] md:w-[180px] lg:w-[200px] group relative bg-[#08070b] rounded overflow-hidden block cursor-pointer transition-transform duration-300 hover:scale-[1.02] snap-start">
+              <div className="relative aspect-[2/3] w-full rounded overflow-hidden border border-white/5">
+                <Image 
+                  src={movie.poster!}
+                  alt={movie.title}
+                  fill
+                  className="object-cover transition-opacity duration-300 group-hover:opacity-80"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  unoptimized
+                />
+                
+                {/* Badges */}
+                <div className="absolute top-2 right-2 flex gap-0.5 shadow-lg">
+                  {movie.tags?.includes('Upcoming') ? (
+                    <span className="bg-[var(--color-netflix-red)] px-2 py-0.5 text-[10px] font-extrabold text-white tracking-widest uppercase rounded-sm shadow-md animate-pulse">Upcoming</span>
+                  ) : (
+                    <>
+                      <span className="bg-[#ff9800] px-1 py-0.5 text-[8px] font-extrabold text-black uppercase">{movie.quality}</span>
+                      {movie.quality === '4K' && <span className="bg-[#18151b] px-1 py-0.5 text-[8px] font-bold text-white uppercase">DV</span>}
+                      <span className="bg-[#E50914] px-1 py-0.5 text-[8px] font-bold text-white uppercase">HDR</span>
+                    </>
+                  )}
+                </div>
+              </div>
+              
+              <div className="pt-3 pb-1">
+                <h4 className="text-[#f7f7f8] font-bold text-sm md:text-base line-clamp-1 group-hover:text-[var(--color-netflix-red)] transition-colors">{movie.title}</h4>
+                <div className="flex flex-wrap items-center gap-1 mt-1 text-[#aaa4af] text-[11px]">
+                  <span>{movie.year}</span>
+                  <span>•</span>
+                  <span>{movie.genre}</span>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Movie Grid */}
+      <section className="px-4 md:px-8 mt-12">
+        <h3 className="text-xl font-bold text-white mb-6 border-l-4 border-[#ff9800] pl-3 flex items-center gap-2">
+          <Flame className="w-6 h-6 text-[#ff9800] fill-[#ff9800]" /> Latest Releases
+        </h3>
+        
+        <div className="flex gap-4 md:gap-5 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-4">
+          {latestMovies.map((movie) => (
+            <Link key={movie.id} href={`/movie/${movie.id}`} className="flex-none w-[140px] sm:w-[160px] md:w-[180px] lg:w-[200px] group relative bg-[#08070b] rounded overflow-hidden block cursor-pointer transition-transform duration-300 hover:scale-[1.02] snap-start">
               <div className="relative aspect-[2/3] w-full rounded overflow-hidden">
                 <Image 
                   // If 'poster' field exists, use it (for local PKP files), otherwise use YouTube vertical crop
@@ -59,6 +130,7 @@ export default function YouTubeGoldmine() {
                   fill
                   className={`object-cover ${!movie.poster && 'object-center'} transition-opacity duration-300 group-hover:opacity-80`}
                   sizes="(max-width: 768px) 50vw, 25vw"
+                  unoptimized
                 />
                 
                 {/* 4KHDHub Style Top-Right Badges */}

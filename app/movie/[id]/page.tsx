@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Play, ChevronLeft, Film } from 'lucide-react';
 import { notFound } from 'next/navigation';
+import MoviePlayer from './MoviePlayer';
 
 export default async function MovieDetails({ params }: { params: { id: string } }) {
   // Await the params object before accessing its properties
@@ -57,15 +58,12 @@ export default async function MovieDetails({ params }: { params: { id: string } 
               ))}
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-wrap gap-4 mb-8">
-              <a href={`https://youtube.com/watch?v=${movie.id}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#ff9800] text-black px-6 py-2.5 rounded font-bold hover:bg-[#e68a00] transition-colors">
-                <Play className="w-5 h-5 fill-black" /> Watch Online
-              </a>
-              <a href={`https://youtube.com/watch?v=${movie.id}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#ff9800] text-black px-6 py-2.5 rounded font-bold hover:bg-[#e68a00] transition-colors">
-                <Film className="w-5 h-5 fill-black" /> Trailer
-              </a>
-            </div>
+            {/* Action Buttons & Player */}
+            <MoviePlayer 
+              movieId={movie.id} 
+              title={movie.title} 
+              trailerId={(movie as any).trailerId} 
+            />
 
             {/* Description */}
             <p className="text-[#aaa4af] text-sm md:text-base leading-relaxed mb-8 max-w-4xl">
