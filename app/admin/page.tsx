@@ -37,6 +37,10 @@ export default function AdminPage() {
   const [movies, setMovies] = useState<any[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // Success Modal State
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [lastPublishedMovie, setLastPublishedMovie] = useState<any>(null);
+
   const fetchMovies = async () => {
     try {
       const res = await fetch("/api/movies");
@@ -143,7 +147,8 @@ export default function AdminPage() {
       const data = await response.json();
       
       if (response.ok) {
-        alert("Movie Published Successfully! 🎉");
+        setLastPublishedMovie({ title, year, thumbnailUrl, qualityBadges: selectedBadges });
+        setShowSuccessModal(true);
         setTitle("");
         setYear("");
         setDescription("");
@@ -463,6 +468,31 @@ export default function AdminPage() {
           </div>
         </div>
       </div>
+
+      {/* SUCCESS MODAL */}
+      {showSuccessModal && lastPublishedMovie && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+          <div className="bg-zinc-900 border border-[#ff9800] rounded-2xl p-8 max-w-sm w-full shadow-[0_0_50px_rgba(255,152,0,0.2)] flex flex-col items-center text-center animate-in zoom-in-95 duration-300">
+            <div className="w-16 h-16 bg-[#ff9800]/20 text-[#ff9800] rounded-full flex items-center justify-center mb-6">
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <h2 className="text-2xl font-bold text-white mb-2">Published Live!</h2>
+            <p className="text-zinc-400 mb-6">Your movie has been added to the database and homepage.</p>
+            
+            <div className="relative aspect-[2/3] w-32 rounded shadow-lg overflow-hidden border border-zinc-700 mb-6">
+              <img src={lastPublishedMovie.thumbnailUrl} alt="Poster" className="w-full h-full object-cover" />
+            </div>
+            <h3 className="font-bold text-lg">{lastPublishedMovie.title}</h3>
+            
+            <button 
+              onClick={() => setShowSuccessModal(false)}
+              className="mt-8 w-full bg-[#ff9800] text-black font-bold py-3 rounded-lg hover:bg-[#ff9800]/90 transition-colors"
+            >
+              Continue Publishing
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
