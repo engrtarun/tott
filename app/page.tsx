@@ -1,5 +1,6 @@
 import React from 'react';
-import movies from '@/data/youtube-movies.json';
+import jsonMovies from '@/data/youtube-movies.json';
+import clientPromise from '@/lib/mongodb';
 import { Play, Flame, Star } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -15,14 +16,38 @@ export default async function YouTubeGoldmine({
   const resolvedParams = await searchParams;
   const searchQuery = resolvedParams?.search?.toLowerCase() || '';
 
+  // Fetch from MongoDB
+  let dbMovies: any[] = [];
+  try {
+    const client = await clientPromise;
+    const db = client.db('tott_movies');
+    const rawMovies = await db.collection('movies').find({}).sort({ createdAt: -1 }).toArray();
+    
+    dbMovies = rawMovies.map((m) => ({
+      id: m._id.toString(),
+      title: m.title || "Untitled",
+      year: m.year || "",
+      poster: m.thumbnailUrl || "",
+      tags: m.tags || [],
+      qualityBadges: m.qualityBadges || [],
+      quality: (m.qualityBadges && m.qualityBadges.length > 0) ? m.qualityBadges[0] : 'HD',
+      genre: "TOTT", 
+    }));
+  } catch (error) {
+    console.error("Failed to fetch movies from DB:", error);
+  }
+
+  // Combine DB movies (newest first) with old hardcoded movies
+  const allMovies = [...dbMovies, ...jsonMovies];
+
   const filteredMovies = searchQuery
-    ? movies.filter(
+    ? allMovies.filter(
         (m) =>
           m.title.toLowerCase().includes(searchQuery) ||
-          m.director?.toLowerCase().includes(searchQuery) ||
-          m.stars?.toLowerCase().includes(searchQuery)
+          (m as any).director?.toLowerCase().includes(searchQuery) ||
+          (m as any).stars?.toLowerCase().includes(searchQuery)
       )
-    : movies;
+    : allMovies;
 
   const mhcuMovies = filteredMovies.filter(m => m.tags?.includes('MHCU'));
   const yrfMovies = filteredMovies.filter(m => m.tags?.includes('YRF Spy Universe'));
