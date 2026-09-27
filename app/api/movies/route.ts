@@ -2,6 +2,9 @@ import { NextResponse } from 'next/server';
 import clientPromise from '@/lib/mongodb';
 import { ObjectId } from 'mongodb';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 // Jab admin form submit karega (POST request)
 export async function POST(request: Request) {
   try {
