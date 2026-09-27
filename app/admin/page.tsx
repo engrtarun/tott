@@ -51,18 +51,56 @@ export default function AdminPage() {
   };
 
   useEffect(() => {
+    let isMounted = true;
+
+    fetch("/api/admin-auth")
+      .then((res) => res.json())
+      .then((data) => {
+        if (isMounted) setIsAuthenticated(data.authenticated === true);
+      })
+      .catch(() => {
+        if (isMounted) setIsAuthenticated(false);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  useEffect(() => {
     if (isAuthenticated) {
       fetchMovies();
     }
   }, [isAuthenticated]);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === "ADMINTOTT") {
+    try {
+      const response = await fetch("/api/admin-auth", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password }),
+      });
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || "Login failed.");
+        return;
+      }
+
       setIsAuthenticated(true);
+      setPassword("");
       setError("");
-    } else {
-      setError("Galat password bhai!");
+    } catch {
+      setError("Login request failed. Please try again.");
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/admin-auth", { method: "DELETE" });
+    } finally {
+      setIsAuthenticated(false);
     }
   };
 
@@ -223,7 +261,7 @@ export default function AdminPage() {
             <h1 className="text-3xl font-bold" style={{ color: BRAND_COLOR }}>TOTT Admin Studio</h1>
             <p className="text-zinc-400 mt-1">Publish and manage movies</p>
           </div>
-          <button onClick={() => setIsAuthenticated(false)} className="text-sm text-zinc-400 hover:text-white">
+          <button onClick={handleLogout} className="text-sm text-zinc-400 hover:text-white">
             Logout
           </button>
         </div>

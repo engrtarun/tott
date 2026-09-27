@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import clientPromise from '@/lib/mongodb';
+import { isAdminRequest } from '@/lib/admin-auth';
 import { ObjectId } from 'mongodb';
 
 export const dynamic = 'force-dynamic';
@@ -7,6 +8,10 @@ export const revalidate = 0;
 
 // Jab admin form submit karega (POST request)
 export async function POST(request: Request) {
+  if (!isAdminRequest(request)) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
   try {
     const body = await request.json();
     const { title, description, tags, thumbnailType, thumbnailUrl, githubImagePath, year, qualityBadges, trailerUrl, watchUrl } = body;
@@ -71,6 +76,10 @@ export async function GET() {
 
 // Ye DELETE route movie ko database se hatane ke liye hai
 export async function DELETE(request: Request) {
+  if (!isAdminRequest(request)) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
   try {
     const { searchParams } = new URL(request.url);
     const id = searchParams.get('id');
