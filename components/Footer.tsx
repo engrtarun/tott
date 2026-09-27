@@ -20,10 +20,10 @@ export default function Footer() {
         <div className="flex flex-col items-center md:items-center gap-4">
           <h4 className="text-[var(--foreground)] font-bold text-[15px]">Quick Links</h4>
           <div className="flex gap-4 text-xs font-semibold text-[var(--text-muted)]">
-            <Link href="#" className="hover:text-[#ff9800] transition-colors">About Us</Link>
-            <Link href="#" className="hover:text-[#ff9800] transition-colors">Contact Us</Link>
-            <Link href="#" className="hover:text-[#ff9800] transition-colors">DMCA</Link>
-            <Link href="#" className="hover:text-[#ff9800] transition-colors">Privacy Policy</Link>
+            <Link href="/about/index.html" className="hover:text-[#ff9800] transition-colors">About Us</Link>
+            <Link href="/contact/index.html" className="hover:text-[#ff9800] transition-colors">Contact Us</Link>
+            <Link href="/dmca/index.html" className="hover:text-[#ff9800] transition-colors">DMCA</Link>
+            <Link href="/privacy-policy/index.html" className="hover:text-[#ff9800] transition-colors">Privacy Policy</Link>
           </div>
         </div>
         

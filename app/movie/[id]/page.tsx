@@ -28,7 +28,7 @@ export default async function MovieDetails({ params }: { params: { id: string } 
           <div className="w-full md:w-1/3 lg:w-1/4 flex-shrink-0">
             <div className="relative aspect-[2/3] w-full rounded-lg overflow-hidden shadow-2xl border border-white/5">
               <Image 
-                src={movie.poster || `https://img.youtube.com/vi/${movie.id}/maxresdefault.jpg`}
+                src={movie.poster || `https://img.youtube.com/vi/${movie.id.split('_')[0]}/maxresdefault.jpg`}
                 alt={movie.title}
                 fill
                 className={`object-cover ${!movie.poster ? 'object-center' : ''}`}

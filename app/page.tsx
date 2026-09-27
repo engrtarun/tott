@@ -72,6 +72,15 @@ export default async function YouTubeGoldmine({
                     </>
                   )}
                 </div>
+
+                {/* Hover Overlay with Genres */}
+                <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
+                  <div className="flex flex-wrap gap-1.5 justify-center">
+                    {movie.genre?.split(',').map((g, i) => (
+                      <span key={i} className="px-2 py-1 bg-white/10 rounded-sm text-xs font-semibold text-white/90 uppercase tracking-wider">{g.trim()}</span>
+                    ))}
+                  </div>
+                </div>
               </div>
               <div className="px-1 flex flex-col gap-0.5 mt-1">
                 <h4 className="text-[var(--foreground)] font-bold text-sm line-clamp-1 group-hover:text-[#ff9800] transition-colors">{movie.title}</h4>
@@ -95,7 +104,7 @@ export default async function YouTubeGoldmine({
             <Link key={movie.id} href={`/movie/${movie.id}`} className="flex-none w-[150px] md:w-[180px] lg:w-[200px] group relative bg-transparent flex flex-col gap-2 cursor-pointer transition-transform duration-300 hover:-translate-y-1 snap-start">
               <div className="relative aspect-[2/3] w-full rounded shadow-sm overflow-hidden border border-[var(--border-color)]">
                 <Image 
-                  src={movie.poster || `https://img.youtube.com/vi/${movie.id}/maxresdefault.jpg`}
+                  src={movie.poster || `https://img.youtube.com/vi/${movie.id.split('_')[0]}/maxresdefault.jpg`}
                   alt={movie.title}
                   fill
                   className="object-cover transition-opacity duration-300 group-hover:opacity-80"
@@ -105,7 +114,7 @@ export default async function YouTubeGoldmine({
                 
                 <div className="absolute top-1.5 right-1.5 flex gap-[3px] flex-wrap justify-end max-w-[85%] z-10">
                   {movie.tags?.includes('Upcoming') ? (
-                    <span className="inline-flex items-center justify-center px-[5px] py-[2px] rounded-[2px] font-[system-ui] text-[9px] font-bold tracking-[0.3px] uppercase bg-gradient-to-br from-red-700 to-red-600 text-white border border-red-500/40 shadow-[0_1px_3px_rgba(185,28,28,0.4)] backdrop-blur-sm">Upcoming</span>
+                    <span className="bg-[var(--color-netflix-red)] px-2 py-0.5 text-[10px] font-extrabold text-white tracking-widest uppercase rounded-sm shadow-md animate-pulse">Upcoming</span>
                   ) : (
                     <>
                       <span className="inline-flex items-center justify-center px-[5px] py-[2px] rounded-[2px] font-[system-ui] text-[9px] font-bold tracking-[0.3px] uppercase bg-gradient-to-br from-[#d97706] to-[#f59e0b] text-black border border-amber-400/50 shadow-[0_1px_3px_rgba(217,119,6,0.5)] backdrop-blur-sm">{movie.quality || 'HD'}</span>
@@ -118,7 +127,7 @@ export default async function YouTubeGoldmine({
                 {/* Hover Overlay with Genres */}
                 <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
                   <div className="flex flex-wrap gap-1.5 justify-center">
-                    {movie.genre.split(',').map((g, i) => (
+                    {movie.genre?.split(',').map((g, i) => (
                       <span key={i} className="px-2 py-1 bg-white/10 rounded-sm text-xs font-semibold text-white/90 uppercase tracking-wider">{g.trim()}</span>
                     ))}
                   </div>
@@ -150,7 +159,7 @@ export default async function YouTubeGoldmine({
               <div className="relative aspect-[2/3] w-full rounded shadow-sm overflow-hidden border border-[var(--border-color)]">
                 <Image 
                   // If 'poster' field exists, use it (for local PKP files), otherwise use YouTube vertical crop
-                  src={movie.poster || `https://img.youtube.com/vi/${movie.id}/maxresdefault.jpg`}
+                  src={movie.poster || `https://img.youtube.com/vi/${movie.id.split('_')[0]}/maxresdefault.jpg`}
                   alt={movie.title}
                   fill
                   className={`object-cover ${!movie.poster && 'object-center'} transition-opacity duration-300 group-hover:opacity-80`}
@@ -173,7 +182,7 @@ export default async function YouTubeGoldmine({
                 {/* Hover Overlay with Genres */}
                 <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
                   <div className="flex flex-wrap gap-1.5 justify-center">
-                    {movie.genre.split(',').map((g, i) => (
+                    {movie.genre?.split(',').map((g, i) => (
                       <span key={i} className="px-2 py-1 bg-white/10 rounded-sm text-xs font-semibold text-white/90 uppercase tracking-wider">{g.trim()}</span>
                     ))}
                   </div>

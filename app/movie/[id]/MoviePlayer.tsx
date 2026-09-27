@@ -55,7 +55,7 @@ export default function MoviePlayer({
               <iframe 
                 width="100%" 
                 height="100%" 
-                src={`https://www.youtube.com/embed/${movieId}?autoplay=1&mute=0`} 
+                src={`https://www.youtube.com/embed/${movieId.split('_')[0]}?autoplay=1&mute=0`} 
                 title={`${title} Full Movie`} 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 

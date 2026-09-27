@@ -16,7 +16,8 @@
       "Comedy",
       "Hindi",
       "Cult Classic"
-    ]
+    ],
+    "poster": "/heraFeri.jpg"
   },
   {
     "id": "e_z2zH5mS5k",
@@ -35,7 +36,8 @@
       "Comedy",
       "Hindi",
       "Family"
-    ]
+    ],
+    "poster": "/chupChupKe.jpg"
   },
   {
     "id": "GBs2XIW9Dnw",
@@ -350,11 +352,11 @@
       "Action",
       "1080p"
     ],
-    "poster": "https://upload.wikimedia.org/wikipedia/en/2/22/Ek_Tha_Tiger_theatrical_poster.jpg",
+    "poster": "/ek-tha-tiger-french-movie-poster.webp",
     "trailerId": "ePO5M5DE01I"
   },
   {
-    "id": "ePO5M5DE01I",
+    "id": "ePO5M5DE01I_1",
     "title": "Tiger Zinda Hai",
     "studio": "YRF",
     "genre": "Action, Thriller",
@@ -370,7 +372,7 @@
       "Action",
       "4K"
     ],
-    "poster": "https://stat4.bollywoodhungama.in/wp-content/uploads/2017/08/Tiger-Zinda-Hai-11-306x393.jpg",
+    "poster": "/tigerJindaH.webp",
     "trailerId": "ePO5M5DE01I"
   },
   {
@@ -414,7 +416,7 @@
     "trailerId": "vqu4z34wENw"
   },
   {
-    "id": "J1r5hG9Z91E",
+    "id": "J1r5hG9Z91E_1",
     "title": "Tiger 3",
     "studio": "YRF",
     "genre": "Action, Thriller",
@@ -434,7 +436,7 @@
     "trailerId": "J1r5hG9Z91E"
   },
   {
-    "id": "tQ0yjYUVDnI",
+    "id": "tQ0yjYUVDnI_1",
     "title": "War 2",
     "studio": "YRF",
     "genre": "Action, Thriller",
@@ -454,7 +456,7 @@
     "trailerId": "tQ0yjYUVDnI"
   },
   {
-    "id": "vqu4z34wENw",
+    "id": "vqu4z34wENw_1",
     "title": "Alpha",
     "studio": "YRF",
     "genre": "Action, Thriller",
@@ -470,7 +472,47 @@
       "Action",
       "1080p"
     ],
-    "poster": "https://stat5.bollywoodhungama.in/wp-content/uploads/2024/07/Alpha-2-306x393.jpg",
+    "poster": "/alpha.jpg",
     "trailerId": "vqu4z34wENw"
+  },
+  {
+    "id": "pathaan2-upcoming",
+    "title": "Pathaan 2",
+    "studio": "YRF",
+    "genre": "Action, Thriller",
+    "year": 2026,
+    "quality": "TBD",
+    "runtime": "TBD",
+    "tagline": "The King returns to the spyverse.",
+    "description": "Upcoming sequel to the blockbuster Pathaan, set in the YRF Spy Universe.",
+    "director": "TBD",
+    "stars": "Shah Rukh Khan",
+    "tags": [
+      "YRF Spy Universe",
+      "Action",
+      "Upcoming"
+    ],
+    "poster": "/pathaan2.jpg",
+    "trailerId": ""
+  },
+  {
+    "id": "tigervspathaan-upcoming",
+    "title": "Tiger vs Pathaan",
+    "studio": "YRF",
+    "genre": "Action, Thriller",
+    "year": 2027,
+    "quality": "TBD",
+    "runtime": "TBD",
+    "tagline": "The biggest face-off.",
+    "description": "The two biggest spies clash in this epic crossover event of the YRF Spy Universe.",
+    "director": "Siddharth Anand",
+    "stars": "Salman Khan, Shah Rukh Khan",
+    "tags": [
+      "YRF Spy Universe",
+      "Action",
+      "Upcoming"
+    ],
+    "poster": "/tigervspathaan.jpg",
+    "trailerId": ""
   }
 ]

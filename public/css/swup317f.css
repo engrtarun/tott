@@ -1,0 +1,23 @@
+/* Instant swap — no fade wait */
+html.is-changing .transition-fade,
+html.is-animating .transition-fade {
+  opacity: 1;
+  transition: none;
+}
+
+.swup-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #f59e0b, #ef4444);
+  transform-origin: left;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.45);
+  pointer-events: none;
+}
+
+html.light .swup-progress-bar {
+  background: linear-gradient(90deg, #d97706, #dc2626);
+}
