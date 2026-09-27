@@ -28,6 +28,11 @@ export default function AdminPage() {
   const [trailerUrl, setTrailerUrl] = useState("");
   const [watchUrl, setWatchUrl] = useState("");
   
+  // TMDB State
+  const [tmdbId, setTmdbId] = useState("");
+  const [isFetchingTmdb, setIsFetchingTmdb] = useState(false);
+  const [tmdbApiKey, setTmdbApiKey] = useState("");
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [movies, setMovies] = useState<any[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -62,6 +67,39 @@ export default function AdminPage() {
     setSelectedBadges(prev => 
       prev.includes(badgeId) ? prev.filter(id => id !== badgeId) : [...prev, badgeId]
     );
+  };
+
+  const fetchTMDBDetails = async () => {
+    if (!tmdbId) return alert("Bhai, TMDB Movie ID dalo pehle!");
+    const apiKey = tmdbApiKey || process.env.NEXT_PUBLIC_TMDB_API_KEY;
+    if (!apiKey) return alert("Bhai, TMDB API Key dalo pehle!");
+
+    setIsFetchingTmdb(true);
+    try {
+      // Netlify server se fetch hoga, Local PC ki ISP block se bachega!
+      const res = await fetch(`/api/tmdb?id=${tmdbId}&apiKey=${apiKey}`);
+      if (!res.ok) throw new Error("Movie not found");
+      const data = await res.json();
+      
+      setTitle(data.title || data.name || "");
+      setYear(data.release_date ? data.release_date.split('-')[0] : "");
+      setDescription(data.overview || "");
+      
+      if (data.poster_path) {
+        setThumbnailUrl(`https://image.tmdb.org/t/p/w780${data.poster_path}`);
+        setThumbnailMode("link");
+      }
+      
+      const trailer = data.videos?.results?.find((v: any) => v.site === "YouTube" && v.type === "Trailer");
+      if (trailer) {
+        setTrailerUrl(`https://www.youtube.com/watch?v=${trailer.key}`);
+      }
+    } catch (err) {
+      console.error(err);
+      alert("TMDB data fetch failed! ID check karo.");
+    } finally {
+      setIsFetchingTmdb(false);
+    }
   };
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -196,6 +234,32 @@ export default function AdminPage() {
           
           {/* LEFT: FORM SECTION */}
           <div className="lg:col-span-2 space-y-6 bg-zinc-900 p-6 rounded-xl border border-zinc-800">
+            
+            {/* TMDB AUTO FETCH SECTION */}
+            <div className="p-4 bg-[#ff9800]/10 border border-[#ff9800]/20 rounded-lg mb-6">
+              <h3 className="text-sm font-bold text-[#ff9800] mb-3 flex items-center gap-2">
+                ⚡ Auto-Fetch from TMDB
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <input 
+                  type="text" value={tmdbApiKey} onChange={(e) => setTmdbApiKey(e.target.value)}
+                  placeholder="TMDB API Key"
+                  className="w-full bg-black/50 border border-[#ff9800]/30 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#ff9800]"
+                />
+                <input 
+                  type="text" value={tmdbId} onChange={(e) => setTmdbId(e.target.value)}
+                  placeholder="TMDB Movie ID (e.g. 550)"
+                  className="w-full bg-black/50 border border-[#ff9800]/30 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#ff9800]"
+                />
+                <button 
+                  onClick={fetchTMDBDetails} disabled={isFetchingTmdb}
+                  className={`w-full bg-[#ff9800] text-black font-bold py-2 px-4 rounded-lg text-sm transition-all ${isFetchingTmdb ? 'opacity-50' : 'hover:scale-105'}`}
+                >
+                  {isFetchingTmdb ? 'Fetching...' : 'Fetch Details'}
+                </button>
+              </div>
+            </div>
+
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-zinc-400 mb-2">Movie Title *</label>
