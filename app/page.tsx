@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import HeroCarousel from '@/components/HeroCarousel';
 
 export default async function YouTubeGoldmine({
   searchParams,
@@ -30,6 +31,8 @@ export default async function YouTubeGoldmine({
   return (
     <main className="min-h-screen pb-20 bg-[var(--background)]">
       <Header />
+
+      {!searchQuery && <HeroCarousel />}
 
       {searchQuery && (
         <section className="px-4 md:px-8 mt-10 max-w-[1400px] mx-auto">
