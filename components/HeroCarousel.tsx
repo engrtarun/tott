@@ -8,11 +8,11 @@ const carouselItems = [
   {
     id: 'maalik-movie',
     title: 'MAALIK',
-    badge: 'NEW SERIES',
+    badge: 'CLASSIC MOVIE',
     genre: 'Hindi | Action, Thriller',
     description: 'A TOTT STUDIOS PRODUCTION',
     videoSrc: '/trailers/maalik.mp4',
-    certification: 'U/A 16+',
+    certification: 'U/A 18+',
   },
   {
     id: 'love-aaj-kal-2-movie',
@@ -30,7 +30,7 @@ const carouselItems = [
     genre: 'Hindi | Action, Drama',
     description: 'A TOTT EXCLUSIVE PRESENTATION',
     videoSrc: '/trailers/animal.mp4',
-    certification: 'A',
+    certification: 'ADULT',
   },
   {
     id: 'an-action-hero-movie',
@@ -66,6 +66,34 @@ export default function HeroCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMuted, setIsMuted] = useState(true);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const ambientVideoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
+  // Swipe logic states
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe) {
+      handleNext();
+    }
+    if (isRightSwipe) {
+      handlePrev();
+    }
+  };
 
   // Auto-slide every 30 seconds if muted
   useEffect(() => {
@@ -88,12 +116,20 @@ export default function HeroCarousel() {
   // Play current video and pause others
   useEffect(() => {
     videoRefs.current.forEach((video, index) => {
+      const ambientVideo = ambientVideoRefs.current[index];
       if (video) {
         if (index === currentIndex) {
           video.currentTime = 0;
           video.play().catch(e => console.log('Autoplay blocked:', e));
+          if (ambientVideo) {
+            ambientVideo.currentTime = 0;
+            ambientVideo.play().catch(e => console.log('Ambient autoplay blocked:', e));
+          }
         } else {
           video.pause();
+          if (ambientVideo) {
+            ambientVideo.pause();
+          }
         }
       }
     });
@@ -102,7 +138,12 @@ export default function HeroCarousel() {
   const currentItem = carouselItems[currentIndex];
 
   return (
-    <div className="relative w-full flex flex-col md:block md:h-[80vh] lg:h-[85vh] bg-[var(--background)] overflow-hidden group">
+    <div 
+      className="relative w-full flex flex-col md:block md:h-[80vh] lg:h-[85vh] bg-[#0a0a0a] overflow-hidden group"
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+    >
       
       {/* Video Container (16:9 on mobile, absolute full-screen on desktop) */}
       <div className="relative w-full aspect-video md:absolute md:inset-0 md:h-full md:aspect-auto z-10 bg-black">
@@ -113,12 +154,25 @@ export default function HeroCarousel() {
               index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
             }`}
           >
+            {/* Ambient Mode Glow Video (All Screens) */}
+            <video
+              ref={(el) => {
+                ambientVideoRefs.current[index] = el;
+              }}
+              src={item.videoSrc}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[160%] object-cover blur-[60px] opacity-80 saturate-[1.5] pointer-events-none"
+              muted={true}
+              loop
+              playsInline
+            />
+            
+            {/* Main Video */}
             <video
               ref={(el) => {
                 videoRefs.current[index] = el;
               }}
               src={item.videoSrc}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover relative z-10"
               muted={isMuted}
               loop
               playsInline
@@ -127,12 +181,14 @@ export default function HeroCarousel() {
         ))}
         
         {/* Desktop Gradients inside video container */}
-        <div className="absolute inset-0 z-20 bg-gradient-to-r from-[var(--background)] via-[var(--background)]/40 to-transparent pointer-events-none hidden md:block" />
-        <div className="absolute inset-0 z-20 bg-gradient-to-t from-[var(--background)] via-transparent to-transparent pointer-events-none hidden md:block" />
+        <div className="absolute inset-0 z-20 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent pointer-events-none hidden md:block" />
+        <div className="absolute inset-0 z-20 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent pointer-events-none hidden md:block" />
         <div className="absolute top-0 left-0 w-full h-32 z-20 bg-gradient-to-b from-black/80 to-transparent pointer-events-none hidden md:block" />
         
         {/* Mobile Gradient */}
-        <div className="absolute inset-0 z-20 bg-gradient-to-t from-[var(--background)] via-transparent to-transparent pointer-events-none md:hidden" />
+        <div className="absolute inset-0 z-20 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent pointer-events-none md:hidden" />
+
+
 
         {/* U/A Badge */}
         <div className="absolute top-2 left-2 md:top-8 md:left-12 lg:left-20 z-30">
@@ -140,6 +196,20 @@ export default function HeroCarousel() {
             {currentItem.certification}
           </div>
         </div>
+
+        {/* Mobile Left/Right Navigation Buttons */}
+        <button 
+          onClick={handlePrev}
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-30 md:hidden w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+        <button 
+          onClick={handleNext}
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-30 md:hidden w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
 
         {/* Mobile Mute Button */}
         <div className="absolute right-2 bottom-2 md:hidden z-30">

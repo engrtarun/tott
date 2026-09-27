@@ -7,9 +7,9 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left mb-10">
         {/* Brand */}
         <div className="flex flex-col items-center md:items-start gap-3">
-          <Link href="/" className="text-xl font-bold tracking-wider flex items-center mb-2">
-            <span className="text-[var(--logo-white)]">T</span>
-            <span className="text-[#ff9800]">OTT</span>
+          <Link href="/" className="flex items-center gap-0.5 mb-2" aria-label="TOTT Home">
+            <span className="text-[var(--logo-white)] text-3xl font-black tracking-tighter">T</span>
+            <span className="text-[#ff9800] text-3xl font-black tracking-tighter">OTT</span>
           </Link>
           <p className="text-xs text-[var(--text-muted)] leading-relaxed max-w-[250px]">
             Your one-stop destination for high-quality movies and TV shows in various formats.

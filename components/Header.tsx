@@ -24,9 +24,9 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 px-6 flex items-center justify-between bg-[var(--background)]/95 backdrop-blur-sm border-b border-[var(--border-color)] h-14">
       <div className="flex items-center gap-8 h-full">
-        <Link href="/" className="text-xl font-bold tracking-wider flex items-center" aria-label="TOTT Home">
-          <span className="text-[var(--logo-white)] text-2xl">T</span>
-          <span className="text-[#ff9800] text-2xl">OTT</span>
+        <Link href="/" className="flex items-center gap-0.5" aria-label="TOTT Home">
+          <span className="text-[var(--logo-white)] text-3xl font-black tracking-tighter">T</span>
+          <span className="text-[#ff9800] text-3xl font-black tracking-tighter">OTT</span>
         </Link>
 
         {/* Nav Links */}
