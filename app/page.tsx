@@ -8,6 +8,9 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import HeroCarousel from '@/components/HeroCarousel';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export default async function YouTubeGoldmine({
   searchParams,
 }: {
